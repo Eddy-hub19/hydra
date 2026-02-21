@@ -1,0 +1,179 @@
+@use "base";
+@use "swiper";
+@use "mobile-layer";
+
+.header {
+  padding: 10px;
+  margin-bottom: 40px;
+  position: fixed;
+  width: 100%;
+  top: 0;
+  left: 0;
+  z-index: 1000;
+  top: 0;
+  left: 50%;
+  background: rgba(140, 80, 190, 0.33);
+  transform: translateX(-50%);
+  border-radius: 25px;
+
+  .logo-link {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+  }
+
+  &_wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    position: relative;
+  }
+}
+
+// hero
+.hero {
+  margin-top: 120px;
+  position: relative;
+
+  &:after {
+    // content: url("/assets/img/line.svg");
+    // position: absolute;
+    // top: -240px;
+    // left: 49%;
+    // width: 100%;
+    // height: auto;
+    // backdrop-filter: blur(6px);
+    // z-index: -1;
+    // overflow: hidden;
+
+    content: "";
+    position: absolute;
+
+    top: -150px;
+    left: 45%;
+    transform: translateX(-50%);
+
+    width: 100vw;
+    height: 100%; /* ← ОБОВʼЯЗКОВО задати висоту */
+
+    background: url("/assets/img/line.svg") no-repeat center;
+    background-size: contain;
+
+    backdrop-filter: blur(6px);
+    z-index: -1;
+    pointer-events: none;
+  }
+
+  .swiper {
+    margin-bottom: 50px;
+  }
+
+  .btn-accent {
+    margin-bottom: 50px;
+  }
+
+  .hero-img-wrapper {
+    overflow: hidden;
+    border-radius: 100px 100px 100px 240px;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    max-width: 318px;
+    // max-height: 277px; це зробимо на компі, шоб вона була квадратна
+    margin-bottom: 40px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+
+    .hero-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: relative;
+    }
+  }
+
+  .hero-title {
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 24px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    text-align: center;
+    margin-bottom: 40px;
+
+    span {
+      background: linear-gradient(92deg, #c0b7e8 -1.02%, #8176af 36.25%);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: 36px;
+      font-weight: 700;
+    }
+  }
+}
+
+.introduction {
+  .desktop {
+    display: none;
+  }
+  img {
+    margin-bottom: 50px;
+    border-radius: 60px 140px;
+    background: #a3a3a3;
+    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  }
+  .wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .subtitle {
+    margin-bottom: 36px;
+  }
+
+  .descr {
+    margin-bottom: 30px;
+    max-width: 352px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+  }
+
+  .btn-accent {
+    width: 100%;
+    max-width: 276px;
+  }
+}
+
+.footer {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 auto;
+  padding-bottom: 90px;
+  .divider {
+    max-width: 289px;
+    height: 1px;
+    background: #8d899d;
+    margin: 0 auto;
+    margin-top: 60px;
+  }
+  .copyright {
+    min-width: 273px;
+    text-align: center;
+    margin-top: 38px;
+    color: #fff;
+    font-family: "Montserrat", sans-serif;
+    font-size: 14px;
+    font-style: normal;
+    font-weight: 700;
+    line-height: normal;
+    letter-spacing: 1.82px;
+  }
+}
