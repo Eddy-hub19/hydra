@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="description" content="HYDRA" />
+    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <link
+      href="https://fonts.googleapis.com/css?family=Montserrat:100,200,300,regular,500,600,700,800,900,100italic,200italic,300italic,italic,500italic,600italic,700italic,800italic,900italic"
+      rel="stylesheet"
+    />
+    <title>HYDRA</title>
+  </head>
+  <body>
+    <header class="container header">
+      <div class="header_wrapper">
+        <div class="logo">
+          <a href="" class="logo-link">
+            <img class="" src="./assets/img/logo1.svg" alt="HYDRA Logo" width="70px" height="70px" />
+            <img class="" src="./assets/img/logo2.svg" alt="HYDRA Logo" width="46px" height="28px" />
+          </a>
+        </div>
+
+        <div class="mobile-layer">
+          <nav id="mobile-menu" class="nav" aria-hidden="true">
+            <ul class="nav-list">
+              <li class="nav-link"><a href="#">ABOUT</a></li>
+              <li class="nav-link"><a href="#">ABOUT</a></li>
+              <li class="nav-link"><a href="#">ABOUT</a></li>
+              <li class="nav-link"><a href="#">ABOUT</a></li>
+              <li class="nav-link"><a href="#">ABOUT</a></li>
+              <li class="nav-link"><a href="#">SERVICES</a></li>
+              <li class="nav-link"><a href="#">TECHNOLOGIES</a></li>
+              <li class="nav-link"><a href="#">HOW TO</a></li>
+            </ul>
+          </nav>
+
+          <div class="header-actions">
+            <a class="btn primary" href="">CONTACT US</a>
+            <a class="btn secondary" href="">JOIN HYDRA</a>
+          </div>
+        </div>
+
+        <div class="hamburger" role="button" aria-controls="mobile-menu" aria-expanded="false" tabindex="0">
+          <!-- Hamburger icon (shown when closed) -->
+          <svg
+            class="icon-hamburger"
+            width="33"
+            height="26"
+            viewBox="0 0 33 26"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <rect width="33" height="3.71429" rx="1.85714" fill="url(#h_g0)" />
+            <rect y="22.2857" width="33" height="3.71429" rx="1.85714" fill="url(#h_g1)" />
+            <rect x="9" y="11.1429" width="24" height="3.71429" rx="1.85714" fill="url(#h_g2)" />
+            <defs>
+              <linearGradient id="h_g0" x1="0" y1="3.46667" x2="36.0395" y2="3.46666" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#C0B7E8" />
+                <stop offset="1" stop-color="#8176AF" />
+              </linearGradient>
+              <linearGradient id="h_g1" x1="-3.90789" y1="26" x2="33" y2="26" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#C0B7E8" />
+                <stop offset="1" stop-color="#8176AF" />
+              </linearGradient>
+              <linearGradient id="h_g2" x1="5.21062" y1="13" x2="33.0001" y2="13" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#C0B7E8" />
+                <stop offset="1" stop-color="#8176AF" />
+              </linearGradient>
+            </defs>
+          </svg>
+
+          <!-- Close icon (shown when open) -->
+          <svg
+            class="icon-close"
+            width="28"
+            height="28"
+            viewBox="0 0 28 28"
+            fill="none"
+            xmlns="http://www.w3.org/2000/svg"
+            aria-hidden="true"
+          >
+            <defs>
+              <linearGradient id="c_g0" x1="0" y1="0" x2="1" y2="1">
+                <stop offset="0" stop-color="#C0B7E8" />
+                <stop offset="1" stop-color="#8176AF" />
+              </linearGradient>
+            </defs>
+            <g stroke="url(#c_g0)" stroke-width="2.6" stroke-linecap="round">
+              <path d="M6.5 6.5 L21.5 21.5" />
+              <path d="M21.5 6.5 L6.5 21.5" />
+            </g>
+          </svg>
+        </div>
+      </div>
+    </header>
+
+    <main class="container">
+      <section class="hero">
+        <div class="hero-img-wrapper">
+          <img src="./assets/img/hero2.svg" alt="" width="490px" height="426px" class="hero-img" />
+        </div>
+        <h1 class="hero-title">
+          <span>Dive</span> Into The Depths<br />
+          Of <span>Virtual Reality</span>
+        </h1>
+        <a href="#" class="btn-accent">BUILD YOUR WORLD</a>
+
+        <div class="swiper hero-swiper">
+          <div class="swiper-wrapper">
+            <div class="swiper-slide">
+              <div class="slider-content">
+                <img src="assets/icons/Combined-Shape.svg" alt="" />
+                <h2>Pay Us a Visit</h2>
+                <p>Union St, Seattle, WA 98101, United States</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider-content">
+                <img src="assets/icons/phone-call.svg" alt="" />
+                <h2>Give Us a Call</h2>
+                <p>(110) 1111-1010</p>
+              </div>
+            </div>
+            <div class="swiper-slide">
+              <div class="slider-content">
+                <img src="assets/icons/mail.svg" alt="" />
+                <h2>Send Us a Message</h2>
+                <p>Contact@HydraV.com</p>
+              </div>
+            </div>
+          </div>
+          <div class="swiper-custom-prev">
+            <img src="/assets/icons/icon-left.svg" alt="Предыдущий слайд" />
+          </div>
+          <div class="swiper-custom-next">
+            <img src="/assets/icons/icon-right.svg" alt="Следующий слайд" />
+          </div>
+        </div>
+      </section>
+
+      <section class="introduction">
+        <div>
+          <h2 class="title">INTRODUCTION</h2>
+          <h3 class="subtitle">TO HYDRA VR</h3>
+        </div>
+        <div>
+          <p class="descr desktop">
+            Vitae sapien pellentesque habitant morbi tristique senectus et netus et. Feugiat nibh sed pulvinar proin
+            gravida hendrerit lectus. Mi sit amet mauris commodo quis imperdiet massa tincidunt nunc. Viverra aliquet
+            eget sit amet tellus. Ornare lectus sit amet est placerat in. Lectus magna fringilla urna porttitor rhoncus
+            vitae.
+          </p>
+        </div>
+        <div class="wrap">
+          <img src="assets/img/intrudaction.svg" alt="" />
+          <p class="descr">
+            Eget mi proin sed libero enim sed faucibus turpis. Nisl rhoncus mattis rhoncus urna neque viverra justo.
+            Vivamus at augue eget arcu dictum. Ultrices gravida dictum fusce ut placerat orci. Aenean et tortor at risus
+            viverra adipisci ng at in. Mattis aliquam faucibus purus in massa. Est placerat in egestas erat imperdiet
+            sed. Consequat sem per viverra nam libero justo laoreet sit amet. Aliquam etiam erat velit scelerisque in
+            dictum non consectetur a. Laoreet sit amet cursus sit amet. Vel eros donec ac odio tempor orci dapibus. Sem
+            nulla pharetra diam sit amet nisl suscipit adipiscing bibendum. Leo a diam sollicitudin tempor.
+          </p>
+
+          <a href="#" class="btn-accent">LEARN MORE</a>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <div class="divider"></div>
+        <div class="copyright">2023 © HYDRA LANDING PAGE BY ZINE. E. FALOUTI ALL RIGHTS RESERVED</div>
+      </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js" defer></script>
+    <script src="./js/main.js" defer></script>
+  </body>
+</html>
