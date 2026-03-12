@@ -35,11 +35,62 @@ document.addEventListener('DOMContentLoaded', () => {
     return {};
   }
 
+  function findMappedNavigationButton(root, type, swiperId) {
+    if (!root || !swiperId) {
+      return null;
+    }
+
+    return root.querySelector(
+      `.swiper-custom-${type}[data-swiper-for="${swiperId}"], .swiper-custom-${type}[aria-controls="${swiperId}"]`,
+    );
+  }
+
+  function resolveNavigationElements(swiperElement) {
+    const localNext = swiperElement.querySelector('.swiper-custom-next');
+    const localPrev = swiperElement.querySelector('.swiper-custom-prev');
+
+    if (localNext || localPrev) {
+      return { nextEl: localNext, prevEl: localPrev };
+    }
+
+    const sectionRoot = swiperElement.closest('section');
+    const swiperId = swiperElement.id || swiperElement.getAttribute('data-swiper-id');
+
+    if (swiperId) {
+      const scopedNext = findMappedNavigationButton(sectionRoot, 'next', swiperId);
+      const scopedPrev = findMappedNavigationButton(sectionRoot, 'prev', swiperId);
+
+      if (scopedNext || scopedPrev) {
+        return { nextEl: scopedNext, prevEl: scopedPrev };
+      }
+
+      const globalNext = findMappedNavigationButton(document, 'next', swiperId);
+      const globalPrev = findMappedNavigationButton(document, 'prev', swiperId);
+
+      if (globalNext || globalPrev) {
+        return { nextEl: globalNext, prevEl: globalPrev };
+      }
+    }
+
+    if (!sectionRoot) {
+      return { nextEl: null, prevEl: null };
+    }
+
+    // Fallback for a common layout where controls are outside .swiper but inside the same section.
+    const externalNext = Array.from(sectionRoot.querySelectorAll('.swiper-custom-next')).find(
+      (button) => !button.closest('.swiper'),
+    );
+    const externalPrev = Array.from(sectionRoot.querySelectorAll('.swiper-custom-prev')).find(
+      (button) => !button.closest('.swiper'),
+    );
+
+    return { nextEl: externalNext || null, prevEl: externalPrev || null };
+  }
+
   function buildSwiperOptions(swiperElement) {
     const inlineOptions = getSwiperInlineOptions(swiperElement);
     const presetOptions = getSwiperPresetOptions(swiperElement);
-    const nextEl = swiperElement.querySelector('.swiper-custom-next');
-    const prevEl = swiperElement.querySelector('.swiper-custom-prev');
+    const { nextEl, prevEl } = resolveNavigationElements(swiperElement);
 
     const options = {
       slidesPerView: 1,

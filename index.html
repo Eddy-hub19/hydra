@@ -172,7 +172,7 @@
           <p class="subtitle">WITH HYDRA?</p>
         </div>
 
-        <div class="swiper hero-swiper why-build-swiper">
+        <div class="swiper hero-swiper why-build-swiper" id="why-build-swiper">
           <div class="swiper-wrapper">
             <div class="swiper-slide">
               <div class="slider-content">
@@ -232,10 +232,20 @@
             </div>
           </div>
         </div>
-        <button type="button" class="swiper-custom-prev" aria-label="Предыдущий слайд">
+        <button
+          type="button"
+          class="swiper-custom-prev"
+          aria-label="Предыдущий слайд"
+          data-swiper-for="why-build-swiper"
+        >
           <img src="/assets/icons/icon-arrow-left.svg" alt="" />
         </button>
-        <button type="button" class="swiper-custom-next" aria-label="Следующий слайд">
+        <button
+          type="button"
+          class="swiper-custom-next"
+          aria-label="Следующий слайд"
+          data-swiper-for="why-build-swiper"
+        >
           <img src="/assets/icons/icon-arrow-right.svg" alt="" />
         </button>
       </section>
