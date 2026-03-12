@@ -760,11 +760,14 @@ ol {
   display: flex;
   align-items: center;
   justify-content: center;
+  width: 256px;
+  height: 256px;
+  margin: 0 auto 24px;
 }
 .technologies-slider .swiper-custom-prev,
 .technologies-slider .swiper-custom-next {
   position: absolute;
-  top: 40%;
+  top: 50%;
   transform: translateY(-50%);
   z-index: 5;
   width: 62px;
