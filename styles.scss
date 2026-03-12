@@ -31,7 +31,6 @@
   }
 }
 
-// hero
 .hero {
   margin-top: 120px;
   position: relative;
@@ -282,6 +281,109 @@
         font-size: 18px;
       }
     }
+  }
+}
+
+.technologies {
+  margin-top: 60px;
+  margin-bottom: 60px;
+
+  &.bg {
+    position: relative;
+    z-index: 0;
+    overflow: hidden;
+    padding: 50px 0;
+
+    &::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: url("/assets/img/technologies-bg.png") no-repeat center center;
+      background-size: cover;
+      z-index: -1;
+      pointer-events: none;
+      border-radius: 60px;
+      box-shadow: 0 4px 4px 0 rgba(192, 183, 232, 0.01);
+      width: 348px;
+      min-height: 163.354px;
+    }
+  }
+
+  .wrap {
+    position: relative;
+    z-index: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    .title {
+      color: #fff;
+      text-align: center;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+    }
+
+    .subtitle {
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+      font-size: 24px;
+      font-style: normal;
+      font-weight: 300;
+      line-height: normal;
+    }
+  }
+}
+
+.technologies-slider {
+  position: relative;
+  padding-bottom: 50px;
+
+  .slider-content {
+    .media-wrap {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+  }
+
+  .swiper-custom-prev,
+  .swiper-custom-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 62px;
+    height: 62px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+    cursor: pointer;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.45;
+    }
+  }
+
+  .swiper-custom-prev {
+    left: 6px;
+  }
+
+  .swiper-custom-next {
+    right: 6px;
   }
 }
 
