@@ -283,6 +283,7 @@
     }
   }
 }
+
 .we-build {
   position: relative;
 
@@ -488,7 +489,7 @@
   .swiper-custom-prev,
   .swiper-custom-next {
     position: absolute;
-    top: 50%;
+    top: 40%;
     transform: translateY(-50%);
     z-index: 5;
     width: 62px;
