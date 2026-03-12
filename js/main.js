@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', () => {
         spaceBetween: 24,
       };
     }
+    if (swiperElement.classList.contains('we-build-swiper')) {
+      return {
+        loop: true,
+        spaceBetween: 24,
+      };
+    }
 
     if (swiperElement.classList.contains('hero-swiper')) {
       return {

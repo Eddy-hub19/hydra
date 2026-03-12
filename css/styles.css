@@ -583,6 +583,24 @@ ol {
   font-size: 18px;
 }
 
+.we-build {
+  position: relative;
+}
+.we-build .title {
+  padding-top: 60px;
+  padding-bottom: 16px;
+}
+.we-build .subtitle {
+  padding-bottom: 26px;
+}
+.we-build button {
+  background: none;
+  border: none;
+}
+.we-build .swiper-custom-prev,
+.we-build .swiper-custom-next {
+  position: absolute;
+  top: 65%;
 .technologies {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -658,11 +676,95 @@ ol {
   background: none;
   cursor: pointer;
 }
+.we-build .swiper-custom-prev img,
+.we-build .swiper-custom-next img {
 .technologies-slider .swiper-custom-prev img,
 .technologies-slider .swiper-custom-next img {
   width: 100%;
   height: 100%;
   display: block;
+}
+.we-build .swiper-custom-prev.swiper-button-disabled,
+.we-build .swiper-custom-next.swiper-button-disabled {
+  opacity: 0.45;
+}
+.we-build .swiper-custom-prev {
+  left: 6px;
+}
+.we-build .swiper-custom-next {
+  right: 6px;
+}
+.we-build .we-build-swiper {
+  width: 320px;
+  min-height: 511px;
+  padding-inline: 0;
+  overflow: hidden;
+}
+.we-build .we-build-swiper .swiper-wrapper {
+  align-items: stretch;
+}
+.we-build .we-build-swiper .swiper-slide {
+  min-height: 511px;
+  border-radius: 42px;
+}
+.we-build .we-build-swiper .slider-content {
+  width: 100%;
+  min-height: 511px;
+  padding: 24px 28px 30px;
+  margin: 0;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+}
+.we-build .we-build-swiper .slider-content .media-wrap {
+  margin: 0 auto;
+  width: 198px;
+  height: 198px;
+  margin-bottom: 24px;
+  padding: 16px;
+  border-radius: 50%;
+  background: rgba(14, 14, 14, 0.34);
+}
+.we-build .we-build-swiper .slider-content .media-wrap img {
+  margin: 0 auto;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  box-shadow: 0 0 0 1px rgba(192, 183, 232, 0.2);
+}
+.we-build .we-build-swiper .slider-content .title {
+  width: auto;
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 1;
+  margin: 0;
+  padding: 0 20px;
+}
+.we-build .we-build-swiper .slider-content .divider {
+  width: 154px;
+  height: 1px;
+  background: rgba(192, 183, 232, 0.34);
+  margin-bottom: 18px;
+}
+.we-build .we-build-swiper .slider-content p {
+  text-align: center;
+  font-size: 16px;
+  line-height: 1.55;
+  margin: 0;
+  color: rgba(255, 255, 255, 0.85);
+}
+.we-build .we-build-swiper .slider-content .try-btn {
+  width: 100%;
+  max-width: 250px;
+  margin-top: auto;
+  margin-bottom: 0;
+  padding: 18px 22px;
+  font-size: 18px;
 }
 .technologies-slider .swiper-custom-prev.swiper-button-disabled,
 .technologies-slider .swiper-custom-next.swiper-button-disabled {
