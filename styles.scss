@@ -162,6 +162,47 @@
     padding-bottom: 26px;
   }
 
+  button {
+    background: none;
+    border: none;
+  }
+
+  .swiper-custom-prev,
+  .swiper-custom-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 5;
+    width: 62px;
+    height: 62px;
+    padding: 0;
+    border-radius: 0;
+    background: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: none;
+    background: none;
+
+    img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+
+    &.swiper-button-disabled {
+      opacity: 0.45;
+    }
+  }
+
+  .swiper-custom-prev {
+    left: 6px;
+  }
+
+  .swiper-custom-next {
+    right: 6px;
+  }
+
   .why-build-swiper {
     width: 320px;
     min-height: 511px;
@@ -239,41 +280,6 @@
         padding: 18px 22px;
         font-size: 18px;
       }
-    }
-
-    .swiper-custom-prev,
-    .swiper-custom-next {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      z-index: 4;
-      width: 62px;
-      height: 62px;
-      border: 0;
-      padding: 0;
-      border-radius: 0;
-      background: transparent;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      img {
-        width: 100%;
-        height: 100%;
-        display: block;
-      }
-
-      &.swiper-button-disabled {
-        opacity: 0.45;
-      }
-    }
-
-    .swiper-custom-prev {
-      left: 6px;
-    }
-
-    .swiper-custom-next {
-      right: 6px;
     }
   }
 }
