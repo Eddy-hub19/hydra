@@ -250,7 +250,228 @@
     width: 295px;
   }
 
-  
+.social {
+  padding-top: 80px;
+
+  .social-wrap {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    margin-bottom: 50px;
+    position: relative;
+
+    .social-img {
+      margin-bottom: 56px;
+    }
+
+    .title {
+      color: #fff;
+      font-family: "Montserrat", sans-serif;
+      font-size: 16px;
+      font-style: normal;
+      font-weight: 700;
+      line-height: normal;
+      margin-bottom: 0;
+    }
+
+    &::after {
+      content: "";
+      position: absolute;
+      display: block;
+      background: url("/assets/img/line-soc1.svg") no-repeat center;
+      top: 20px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 2px;
+    }
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      background: url("/assets/img/line-soc2.svg") no-repeat center;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 100%;
+      height: 2px;
+    }
+  }
+
+  .social-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 5px 0;
+  }
+
+  .social-link {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+.why-build {
+  .title {
+    padding-top: 60px;
+    padding-bottom: 16px;
+  }
+
+  .subtitle {
+    padding-bottom: 26px;
+  }
+
+  .why-build-swiper {
+    width: 320px;
+    height: 511px;
+
+    .slider-content {
+      padding-top: 26px;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 27px 50px;
+      position: relative;
+
+      &:after {
+        content: "";
+        position: absolute;
+        top: 25%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 219px;
+        height: 219px;
+        background: rgba(14, 14, 14, 0.32);
+        border-radius: 50%;
+        z-index: -1;
+      }
+
+      .title {
+        color: #fff;
+        font-family: "Montserrat", sans-serif;
+        font-size: 24px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: normal;
+        margin-top: 20px;
+      }
+    }
+
+    .swiper-custom-prev,
+    .swiper-custom-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      background: rgba(14, 14, 14, 0.32);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .swiper-custom-prev {
+      left: -20px;
+    }
+
+    .swiper-custom-next {
+      right: -20px;
+    }
+  }
+}
+
+.example-swiper-section {
+  padding-top: 30px;
+
+  .subtitle {
+    margin-bottom: 28px;
+  }
+
+  .example-swiper {
+    position: relative;
+    padding-inline: 42px;
+
+    .swiper-slide {
+      border-radius: 24px;
+      border: 1px solid rgba(192, 183, 232, 0.28);
+      background: linear-gradient(180deg, rgba(50, 44, 70, 0.9) 0%, rgba(35, 31, 53, 0.95) 100%);
+      height: auto;
+    }
+
+    .demo-card {
+      min-height: 180px;
+      border-radius: 22px;
+      padding: 22px 18px;
+      background: radial-gradient(120% 140% at 50% 0%, rgba(98, 86, 145, 0.42) 0%, rgba(34, 30, 50, 0.97) 72%);
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+
+      h3 {
+        font-size: 20px;
+        line-height: 1.1;
+      }
+
+      p {
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 1.4;
+        color: rgba(255, 255, 255, 0.88);
+      }
+    }
+
+    .swiper-custom-prev,
+    .swiper-custom-next {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 3;
+      width: 36px;
+      height: 36px;
+      border: 0;
+      padding: 0;
+      border-radius: 50%;
+      background: rgba(22, 20, 33, 0.62);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition:
+        transform 0.2s ease,
+        background-color 0.2s ease;
+
+      &:hover {
+        transform: translateY(-50%) scale(1.06);
+        background: rgba(26, 24, 38, 0.82);
+      }
+
+      &:focus-visible {
+        outline: 2px solid rgba(192, 183, 232, 0.85);
+        outline-offset: 2px;
+      }
+
+      &.swiper-button-disabled {
+        opacity: 0.42;
+        pointer-events: none;
+        transform: translateY(-50%);
+      }
+    }
+
+    .swiper-custom-prev {
+      left: 0;
+    }
+
+    .swiper-custom-next {
+      right: 0;
+    }
+  }
 }
 
 .footer {
