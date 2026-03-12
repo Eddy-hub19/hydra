@@ -601,6 +601,67 @@ ol {
 .we-build .swiper-custom-next {
   position: absolute;
   top: 65%;
+.technologies {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.technologies.bg {
+  position: relative;
+  z-index: 0;
+  overflow: hidden;
+  padding: 50px 0;
+}
+.technologies.bg::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: url("/assets/img/technologies-bg.png") no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+  border-radius: 60px;
+  box-shadow: 0 4px 4px 0 rgba(192, 183, 232, 0.01);
+  width: 348px;
+  min-height: 163.354px;
+}
+.technologies .wrap {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.technologies .wrap .title {
+  color: #fff;
+  text-align: center;
+  font-family: "Montserrat", sans-serif;
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+}
+.technologies .wrap .subtitle {
+  color: #fff;
+  font-family: "Montserrat", sans-serif;
+  font-size: 24px;
+  font-style: normal;
+  font-weight: 300;
+  line-height: normal;
+}
+
+.technologies-slider {
+  position: relative;
+  padding-bottom: 50px;
+}
+.technologies-slider .slider-content .media-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.technologies-slider .swiper-custom-prev,
+.technologies-slider .swiper-custom-next {
+  position: absolute;
+  top: 50%;
   transform: translateY(-50%);
   z-index: 5;
   width: 62px;
@@ -617,6 +678,8 @@ ol {
 }
 .we-build .swiper-custom-prev img,
 .we-build .swiper-custom-next img {
+.technologies-slider .swiper-custom-prev img,
+.technologies-slider .swiper-custom-next img {
   width: 100%;
   height: 100%;
   display: block;
@@ -702,6 +765,16 @@ ol {
   margin-bottom: 0;
   padding: 18px 22px;
   font-size: 18px;
+}
+.technologies-slider .swiper-custom-prev.swiper-button-disabled,
+.technologies-slider .swiper-custom-next.swiper-button-disabled {
+  opacity: 0.45;
+}
+.technologies-slider .swiper-custom-prev {
+  left: 6px;
+}
+.technologies-slider .swiper-custom-next {
+  right: 6px;
 }
 
 .form-section {

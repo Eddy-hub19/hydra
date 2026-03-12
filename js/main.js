@@ -38,6 +38,13 @@ document.addEventListener('DOMContentLoaded', () => {
       };
     }
 
+    if (swiperElement.classList.contains('technologies-slider-swiper')) {
+      return {
+        loop: true,
+        spaceBetween: 16,
+      };
+    }
+
     return {};
   }
 
