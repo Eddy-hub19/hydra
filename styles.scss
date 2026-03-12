@@ -534,6 +534,12 @@
     padding-top: 50px;
     padding-bottom: 50px;
     background: radial-gradient(circle at center, #403a5f 0%, #211e2e 100%);
+
+    @media screen and (max-width: 768px) {
+      max-width: 100%;
+      margin: 0 20px;
+      
+    }
   }
 
   .divider {

@@ -139,6 +139,17 @@ ol {
   max-width: 350px;
   margin: 0 auto;
 }
+@media screen and (max-width: 768px) {
+  .container {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+}
+@media screen and (max-width: 1440px) {
+  .container {
+    max-width: 1272px;
+  }
+}
 
 .hero-swiper {
   position: relative;
@@ -808,6 +819,12 @@ ol {
   padding-top: 50px;
   padding-bottom: 50px;
   background: radial-gradient(circle at center, #403a5f 0%, #211e2e 100%);
+}
+@media screen and (max-width: 768px) {
+  .form-section .card {
+    max-width: 100%;
+    margin: 0 20px;
+  }
 }
 .form-section .divider {
   width: 117px;
