@@ -1,3 +1,74 @@
+// ============================================================
+// VARIABLES
+// ============================================================
+$color-bg: #302c42;
+$color-card-bg: #211e2e;
+$color-text: #fff;
+$color-text-muted: rgba(255, 255, 255, 0.85);
+$color-accent-start: #8176af;
+$color-accent-end: #c0b7e8;
+$gradient-accent: linear-gradient(90deg, $color-accent-start 0%, $color-accent-end 100%);
+$font-main: "Montserrat", sans-serif;
+$radius-pill: 40px;
+$transition-smooth: 200ms ease;
+
+// ============================================================
+// MIXINS
+// ============================================================
+@mixin slider-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 5;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background: transparent;
+  border-radius: 50%;
+  cursor: pointer;
+  transition:
+    transform $transition-smooth,
+    background $transition-smooth,
+    opacity $transition-smooth;
+
+  img {
+    width: 62px;
+    height: 62px;
+    display: block;
+  }
+
+  &:hover {
+    transform: translateY(-50%) scale(1.1);
+    background: rgba(255, 255, 255, 0.08);
+  }
+
+  &:focus-visible {
+    outline: 2px solid rgba($color-accent-end, 0.7);
+    outline-offset: 3px;
+  }
+
+  &.swiper-button-disabled {
+    opacity: 0.3;
+    cursor: default;
+    pointer-events: none;
+  }
+
+  @media screen and (min-width: 1024px) {
+    width: 62px;
+    height: 62px;
+
+    img {
+      width: 28px;
+      height: 28px;
+    }
+  }
+}
+
+// ============================================================
+// RESET
+// ============================================================
 *,
 *::before,
 *::after {
@@ -8,6 +79,10 @@
   margin: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 html,
 body {
   min-height: 100%;
@@ -16,10 +91,11 @@ body {
 body {
   font-family: "Montserrat", sans-serif;
   line-height: 1.5;
-  background: #302c42;
-  color: #fff;
+  background: $color-bg;
+  color: $color-text;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 img,
@@ -59,6 +135,14 @@ ol {
   line-height: normal;
   text-transform: uppercase;
   margin-bottom: 16px;
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 40px;
+  }
 }
 
 .subtitle {
@@ -69,15 +153,22 @@ ol {
   font-style: normal;
   font-weight: 300;
   line-height: normal;
+
+  @media screen and (min-width: 768px) {
+    font-size: 32px;
+  }
+
+  @media screen and (min-width: 1024px) {
+    font-size: 40px;
+  }
 }
 
 .btn {
   font-family: "Montserrat", sans-serif;
   font-size: 12px;
-  font-style: normal;
   font-weight: 700;
   line-height: normal;
-  border-radius: 40px;
+  border-radius: $radius-pill;
   width: 155px;
   height: 48px;
   padding: 10px 20px;
@@ -88,72 +179,109 @@ ol {
   text-align: center;
   min-width: 120px;
   box-shadow: 0 6px 18px rgba(16, 12, 28, 0.35);
+  transition:
+    transform 180ms cubic-bezier(0.2, 0.9, 0.2, 1),
+    box-shadow $transition-smooth,
+    background 160ms ease,
+    border-color 160ms ease;
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 30px rgba(16, 12, 28, 0.45);
+  }
 
   &.primary {
-    border: 2px solid #fff;
-    color: #fff;
+    border: 2px solid $color-text;
+    color: $color-text;
+
+    &:hover {
+      background: rgba(255, 255, 255, 0.03);
+      border-color: rgba(255, 255, 255, 0.28);
+    }
   }
 
   &.secondary {
-    background: linear-gradient(90deg, #8176af 0%, #c0b7e8 100%);
+    background: $gradient-accent;
     color: #343045;
-    box-shadow: 0 6px 16px rgba(129, 118, 175, 0.18);
+    box-shadow: 0 6px 16px rgba($color-accent-start, 0.18);
+
+    &:hover {
+      transform: translateY(-2px) scale(1.01);
+    }
   }
 }
 
 .btn-accent {
-  background: linear-gradient(90deg, #8176af 0%, #c0b7e8 100%);
+  background: $gradient-accent;
   color: #343045;
   font-family: "Montserrat", sans-serif;
   font-size: 14px;
-  border-radius: 40px;
-  font-style: normal;
+  border-radius: $radius-pill;
   font-weight: 700;
   line-height: 1;
   display: inline-block;
   padding: 20px 60px;
   width: 100%;
   text-align: center;
-}
-
-.btn {
   transition:
-    transform 180ms cubic-bezier(0.2, 0.9, 0.2, 1),
-    box-shadow 200ms ease,
-    background 160ms ease,
-    border-color 160ms ease;
-}
+    transform $transition-smooth,
+    box-shadow $transition-smooth;
 
-.btn:hover,
-.btn:focus-visible {
-  transform: translateY(-3px);
-  box-shadow: 0 10px 30px rgba(16, 12, 28, 0.45);
-}
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 24px rgba($color-accent-start, 0.35);
+  }
 
-.btn.primary:hover {
-  background: rgba(255, 255, 255, 0.03);
-  border-color: rgba(255, 255, 255, 0.28);
-}
-
-.btn.secondary:hover {
-  transform: translateY(-2px) scale(1.01);
+  @media screen and (min-width: 768px) {
+    font-size: 16px;
+    width: auto;
+  }
 }
 
 .container {
   width: 100%;
-  max-width: 350px;
+  max-width: 100%;
+  padding: 0 20px;
   margin: 0 auto;
 
-  @media screen and (max-width: 768px) {
-    max-width: 100%;
-    padding: 0 20px;
+  @media screen and (min-width: 768px) {
+    max-width: 720px;
+    padding: 0;
   }
 
-  @media screen and (max-width: 1440px) {
+  @media screen and (min-width: 1024px) {
+    max-width: 960px;
+  }
+
+  @media screen and (min-width: 1440px) {
     max-width: 1272px;
-    
   }
 }
 
+// ============================================================
+// SLIDER NAV WRAPPER (reusable for all slider sections)
+// ============================================================
+.slider-nav-wrapper {
+  position: relative;
 
+  .swiper-custom-prev {
+    left: 6px;
+    @include slider-nav-btn;
+  }
 
+  .swiper-custom-next {
+    right: 6px;
+    @include slider-nav-btn;
+  }
+
+  @media screen and (min-width: 768px) {
+    .swiper-custom-prev { left: -10px; }
+    .swiper-custom-next { right: -10px; }
+  }
+
+  @media screen and (min-width: 1024px) {
+    .swiper-custom-prev { left: -30px; }
+    .swiper-custom-next { right: -30px; }
+  }
+}

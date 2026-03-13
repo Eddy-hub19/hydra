@@ -1,5 +1,10 @@
 document.addEventListener('DOMContentLoaded', () => {
   const swiperInstances = new WeakMap();
+  const desktopMediaQuery = window.matchMedia('(min-width: 1024px)');
+
+  function isDesktopViewport() {
+    return desktopMediaQuery.matches;
+  }
 
   function getSwiperInlineOptions(swiperElement) {
     const rawOptions = swiperElement.getAttribute('data-swiper-options');
@@ -22,12 +27,22 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         loop: true,
         spaceBetween: 24,
+        autoplay: { delay: 4000, disableOnInteraction: false, pauseOnMouseEnter: true },
+        breakpoints: {
+          768: { slidesPerView: 2, spaceBetween: 24 },
+          1024: { slidesPerView: 3, spaceBetween: 30 },
+        },
       };
     }
     if (swiperElement.classList.contains('we-build-swiper')) {
       return {
         loop: true,
         spaceBetween: 24,
+        autoplay: { delay: 3500, disableOnInteraction: false, pauseOnMouseEnter: true },
+        breakpoints: {
+          768: { slidesPerView: 2, spaceBetween: 24 },
+          1024: { slidesPerView: 4, spaceBetween: 30 },
+        },
       };
     }
 
@@ -35,6 +50,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         loop: true,
         spaceBetween: 16,
+        autoplay: { delay: 4200, disableOnInteraction: false, pauseOnMouseEnter: true },
+        breakpoints: {
+          768: { slidesPerView: 2, spaceBetween: 20 },
+          1024: { slidesPerView: 2, spaceBetween: 24 },
+          1440: { slidesPerView: 2, spaceBetween: 28 },
+        },
       };
     }
 
@@ -42,6 +63,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return {
         loop: true,
         spaceBetween: 16,
+        autoplay: { delay: 3000, disableOnInteraction: false, pauseOnMouseEnter: true },
+        breakpoints: {
+          768: { slidesPerView: 2, spaceBetween: 20 },
+          1024: { slidesPerView: 3, spaceBetween: 24 },
+          1440: { slidesPerView: 4, spaceBetween: 30 },
+        },
       };
     }
 
@@ -136,7 +163,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
   function initSwiper(swiperElement) {
-    if (!swiperElement || swiperInstances.has(swiperElement) || typeof Swiper === 'undefined') {
+    if (!swiperElement || swiperInstances.has(swiperElement) || typeof Swiper === 'undefined' || isDesktopViewport()) {
       return;
     }
 
@@ -145,17 +172,48 @@ document.addEventListener('DOMContentLoaded', () => {
     swiperInstances.set(swiperElement, instance);
   }
 
-  function initAllSwipers(root = document) {
+  function destroySwiper(swiperElement) {
+    const instance = swiperInstances.get(swiperElement);
+
+    if (!instance) {
+      return;
+    }
+
+    instance.destroy(true, true);
+    swiperInstances.delete(swiperElement);
+  }
+
+  function syncAllSwipers(root = document) {
     const swiperElements = root.querySelectorAll('.swiper');
+
+    if (isDesktopViewport()) {
+      swiperElements.forEach((swiperElement) => destroySwiper(swiperElement));
+      return;
+    }
+
     swiperElements.forEach((swiperElement) => initSwiper(swiperElement));
   }
 
-  initAllSwipers();
+  syncAllSwipers();
+
+  const onViewportChange = () => {
+    syncAllSwipers();
+  };
+
+  if (typeof desktopMediaQuery.addEventListener === 'function') {
+    desktopMediaQuery.addEventListener('change', onViewportChange);
+  } else if (typeof desktopMediaQuery.addListener === 'function') {
+    desktopMediaQuery.addListener(onViewportChange);
+  }
 
   const swiperObserver = new MutationObserver((mutations) => {
     mutations.forEach((mutation) => {
       mutation.addedNodes.forEach((node) => {
         if (!(node instanceof HTMLElement)) {
+          return;
+        }
+
+        if (isDesktopViewport()) {
           return;
         }
 

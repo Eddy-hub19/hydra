@@ -156,3 +156,90 @@
 .mobile-layer .header-actions .btn:hover {
   filter: brightness(1.06);
 }
+
+// ==========================================
+// DESKTOP NAV — показываем меню inline (768px+)
+// ==========================================
+@media screen and (min-width: 768px) {
+  .header {
+    .mobile-layer {
+      position: static;
+      flex-direction: row;
+      align-items: center;
+      gap: 20px;
+      padding: 0;
+      pointer-events: auto;
+      background: transparent;
+      backdrop-filter: none;
+    }
+
+    .mobile-layer .nav-list {
+      display: flex !important;
+      flex-direction: row;
+      gap: 6px;
+      padding: 0;
+      background: none;
+      border-radius: 0;
+      box-shadow: none;
+      transform: none !important;
+      opacity: 1 !important;
+      max-height: none !important;
+      overflow: visible;
+    }
+
+    .mobile-layer .nav-list .nav-link a {
+      padding: 8px 10px;
+      font-size: 11px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+    }
+
+    .mobile-layer .header-actions {
+      display: flex !important;
+      gap: 10px;
+      align-items: center;
+      background: transparent;
+      padding: 0;
+      border-radius: 0;
+    }
+
+    .hamburger {
+      display: none !important;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .header {
+    .mobile-layer {
+      gap: 32px;
+    }
+
+    .mobile-layer .nav-list {
+      gap: 8px;
+    }
+
+    .mobile-layer .nav-list .nav-link a {
+      padding: 10px 14px;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+
+    .mobile-layer .header-actions {
+      gap: 12px;
+    }
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .header {
+    .mobile-layer .nav-list {
+      gap: 12px;
+    }
+
+    .mobile-layer .nav-list .nav-link a {
+      font-size: 13px;
+      padding: 10px 16px;
+    }
+  }
+}

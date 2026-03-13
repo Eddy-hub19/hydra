@@ -8,13 +8,14 @@
   position: fixed;
   width: 100%;
   top: 0;
-  left: 0;
-  z-index: 1000;
-  top: 0;
   left: 50%;
+  z-index: 1000;
   background: rgba(140, 80, 190, 0.33);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   transform: translateX(-50%);
   border-radius: 25px;
+  border: 1px solid rgba(192, 183, 232, 0.08);
 
   .logo-link {
     display: flex;
@@ -36,29 +37,15 @@
   position: relative;
 
   &:after {
-    // content: url("/assets/img/line.svg");
-    // position: absolute;
-    // top: -240px;
-    // left: 49%;
-    // width: 100%;
-    // height: auto;
-    // backdrop-filter: blur(6px);
-    // z-index: -1;
-    // overflow: hidden;
-
     content: "";
     position: absolute;
-
     top: -150px;
     left: 45%;
     transform: translateX(-50%);
-
     width: 100vw;
-    height: 100%; /* ← ОБОВʼЯЗКОВО задати висоту */
-
+    height: 100%;
     background: url("/assets/img/line.svg") no-repeat center;
     background-size: contain;
-
     backdrop-filter: blur(6px);
     z-index: -1;
     pointer-events: none;
@@ -75,10 +62,10 @@
   .hero-img-wrapper {
     overflow: hidden;
     border-radius: 100px 100px 100px 240px;
-    box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+    box-shadow:
+      0 4px 4px 0 rgba(0, 0, 0, 0.25),
+      0 0 60px rgba(129, 118, 175, 0.15);
     max-width: 318px;
-    // max-height: 277px; це зробимо на компі, шоб вона була квадратна
-    margin-bottom: 40px;
     margin: 0 auto;
     position: relative;
     z-index: 1;
@@ -161,50 +148,10 @@
     padding-bottom: 26px;
   }
 
-  button {
-    background: none;
-    border: none;
-  }
-
-  .swiper-custom-prev,
-  .swiper-custom-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
-    width: 62px;
-    height: 62px;
-    padding: 0;
-    border-radius: 0;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background: none;
-    cursor: pointer;
-
-    img {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    &.swiper-button-disabled {
-      opacity: 0.45;
-    }
-  }
-
-  .swiper-custom-prev {
-    left: 6px;
-  }
-
-  .swiper-custom-next {
-    right: 6px;
-  }
-
   .why-build-swiper {
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
     min-height: 511px;
     padding-inline: 0;
     overflow: hidden;
@@ -218,6 +165,17 @@
       border-radius: 42px;
       background: radial-gradient(115% 130% at 50% 0%, #343055 0%, #26213d 55%, #211e2e 100%);
       box-shadow: inset 0 0 36px rgba(192, 183, 232, 0.1);
+      border: 1px solid rgba(192, 183, 232, 0.06);
+      transition:
+        transform 300ms ease,
+        box-shadow 300ms ease;
+
+      &:hover {
+        transform: translateY(-4px);
+        box-shadow:
+          inset 0 0 36px rgba(192, 183, 232, 0.1),
+          0 16px 48px rgba(129, 118, 175, 0.15);
+      }
     }
 
     .slider-content {
@@ -296,50 +254,10 @@
     padding-bottom: 26px;
   }
 
-  button {
-    background: none;
-    border: none;
-  }
-
-  .swiper-custom-prev,
-  .swiper-custom-next {
-    position: absolute;
-    top: 65%;
-    transform: translateY(-50%);
-    z-index: 5;
-    width: 62px;
-    height: 62px;
-    padding: 0;
-    border-radius: 0;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background: none;
-    cursor: pointer;
-
-    img {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    &.swiper-button-disabled {
-      opacity: 0.45;
-    }
-  }
-
-  .swiper-custom-prev {
-    left: 6px;
-  }
-
-  .swiper-custom-next {
-    right: 6px;
-  }
-
   .we-build-swiper {
-    width: 320px;
+    width: 100%;
+    max-width: 320px;
+    margin: 0 auto;
     min-height: 511px;
     padding-inline: 0;
     overflow: hidden;
@@ -434,14 +352,16 @@
       content: "";
       position: absolute;
       inset: 0;
-      background: url("/assets/img/technologies-bg.png") no-repeat center center;
+      background:
+        linear-gradient(0deg, rgba(48, 44, 66, 0.79) 0%, rgba(48, 44, 66, 0.79) 100%),
+        url("/assets/img/ing.svg") lightgray 50% / cover no-repeat;
       background-size: cover;
       z-index: -1;
       pointer-events: none;
       border-radius: 60px;
       box-shadow: 0 4px 4px 0 rgba(192, 183, 232, 0.01);
-      width: 348px;
-      min-height: 163.354px;
+      max-width: 100%;
+      height: 163px;
     }
   }
 
@@ -490,31 +410,7 @@
 
   .swiper-custom-prev,
   .swiper-custom-next {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    z-index: 5;
-    width: 62px;
-    height: 62px;
-    padding: 0;
-    border-radius: 0;
-    background: transparent;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: none;
-    background: none;
-    cursor: pointer;
-
-    img {
-      width: 100%;
-      height: 100%;
-      display: block;
-    }
-
-    &.swiper-button-disabled {
-      opacity: 0.45;
-    }
+    @include base.slider-nav-btn;
   }
 
   .swiper-custom-prev {
@@ -529,17 +425,14 @@
 .form-section {
   margin-bottom: 50px;
   .card {
-    max-width: 343px;
+    max-width: 100%;
     border-radius: 30px;
     padding-top: 50px;
     padding-bottom: 50px;
     background: radial-gradient(circle at center, #403a5f 0%, #211e2e 100%);
-
-    @media screen and (max-width: 768px) {
-      max-width: 100%;
-      margin: 0 20px;
-      
-    }
+    margin: 0 auto;
+    border: 1px solid rgba(192, 183, 232, 0.08);
+    box-shadow: 0 24px 80px rgba(0, 0, 0, 0.3);
   }
 
   .divider {
@@ -758,5 +651,601 @@
     font-weight: 700;
     line-height: normal;
     letter-spacing: 1.82px;
+  }
+}
+
+// ============================================================
+// RESPONSIVE — TABLET (768px+)
+// ============================================================
+@media screen and (min-width: 768px) {
+  // ---------- HEADER ----------
+  .header {
+    max-width: 900px;
+    padding: 16px 32px;
+    border-radius: 30px;
+
+    .logo-link {
+      gap: 14px;
+    }
+  }
+
+  // ---------- HERO ----------
+  .hero {
+    margin-top: 150px;
+
+    &:after {
+      top: -200px;
+    }
+
+    .hero-img-wrapper {
+      max-width: 480px;
+      margin: 0 auto 48px;
+      border-radius: 120px 120px 120px 260px;
+    }
+
+    .hero-title {
+      font-size: 36px;
+      margin-bottom: 48px;
+
+      span {
+        font-size: 52px;
+      }
+    }
+
+    .btn-accent {
+      margin-bottom: 60px;
+    }
+  }
+
+  // ---------- INTRODUCTION ----------
+  .introduction {
+    .subtitle {
+      margin-bottom: 48px;
+    }
+
+    img {
+      border-radius: 80px 160px;
+    }
+
+    .descr {
+      max-width: 560px;
+      font-size: 18px;
+    }
+
+    .btn-accent {
+      max-width: 320px;
+    }
+  }
+
+  // ---------- WHY BUILD ----------
+  .why-build {
+    .title {
+      font-size: 28px;
+    }
+
+    .why-build-swiper {
+      width: 100%;
+      max-width: 100%;
+
+      .swiper-slide {
+        min-height: 480px;
+      }
+
+      .slider-content {
+        min-height: 480px;
+      }
+    }
+  }
+
+  // ---------- WE BUILD ----------
+  .we-build {
+    .we-build-swiper {
+      width: 100%;
+      max-width: 100%;
+
+      .swiper-slide {
+        min-height: 380px;
+      }
+
+      .slider-content {
+        min-height: 380px;
+      }
+    }
+  }
+
+  // ---------- TECHNOLOGIES ----------
+  .technologies {
+    &.bg {
+      padding: 70px 0;
+
+      &::after {
+        width: 100%;
+        min-height: 250px;
+        border-radius: 80px;
+      }
+    }
+
+    .wrap {
+      .title {
+        font-size: 24px;
+      }
+
+      .subtitle {
+        font-size: 36px;
+      }
+    }
+  }
+
+  .technologies-slider {
+    .slider-content .media-wrap {
+      width: 280px;
+      height: 280px;
+    }
+  }
+
+  // ---------- FORM ----------
+  .form-section {
+    .card {
+      max-width: 580px;
+      margin: 0 auto;
+      padding: 60px 48px;
+    }
+
+    .form {
+      max-width: 480px;
+    }
+  }
+
+  // ---------- SOCIAL ----------
+  .social {
+    .social-wrap {
+      margin-bottom: 32px;
+
+      .title {
+        font-size: 24px;
+      }
+    }
+
+    .social-logo {
+      width: 220px;
+      height: 220px;
+    }
+
+    .social-content {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 24px;
+    }
+
+    .about-section,
+    .faq-section {
+      display: block;
+      flex: 0 0 auto;
+      max-width: 200px;
+    }
+
+    .social-section {
+      flex: 1 0 100%;
+    }
+
+    .social-links {
+      gap: 24px;
+    }
+  }
+
+  // ---------- FOOTER ----------
+  .footer {
+    padding-bottom: 60px;
+
+    .divider {
+      max-width: 480px;
+    }
+  }
+}
+
+// ============================================================
+// RESPONSIVE — DESKTOP (1024px+)
+// ============================================================
+@media screen and (min-width: 1024px) {
+  // ---------- HEADER ----------
+  .header {
+    max-width: 1200px;
+    padding: 16px 48px;
+
+    &_wrapper {
+      gap: 24px;
+    }
+  }
+
+  // ---------- HERO ----------
+  .hero {
+    margin-top: 160px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto auto auto;
+    gap: 0 60px;
+    align-items: center;
+
+    &:after {
+      top: -280px;
+      left: 50%;
+    }
+
+    .hero-img-wrapper {
+      grid-column: 2;
+      grid-row: 1 / 3;
+      max-width: 100%;
+      max-height: 420px;
+      margin: 0;
+    }
+
+    .hero-title {
+      grid-column: 1;
+      grid-row: 1;
+      text-align: left;
+      font-size: 40px;
+      margin-bottom: 32px;
+
+      span {
+        font-size: 60px;
+      }
+    }
+
+    .btn-accent {
+      grid-column: 1;
+      grid-row: 2;
+      width: auto;
+      max-width: 300px;
+      margin-bottom: 0;
+      align-self: start;
+    }
+
+    .hero-swiper {
+      grid-column: 1 / -1;
+      grid-row: 3;
+      margin-top: 60px;
+    }
+  }
+
+  .hero-swiper,
+  .why-build-swiper,
+  .we-build-swiper,
+  .technologies-slider-swiper {
+    .swiper-wrapper {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      gap: 30px;
+    }
+  }
+
+  .hero-swiper {
+    .swiper-slide {
+      width: calc((100% - 60px) / 3);
+      flex: 0 0 calc((100% - 60px) / 3);
+    }
+  }
+
+  .why-build-swiper,
+  .we-build-swiper,
+  .technologies-slider-swiper {
+    .swiper-slide {
+      width: calc((100% - 90px) / 4);
+      flex: 0 0 calc((100% - 90px) / 4);
+    }
+  }
+
+  // ---------- INTRODUCTION ----------
+  .introduction {
+    .desktop {
+      display: block;
+      max-width: 800px;
+      margin: 0 auto 60px;
+      text-align: center;
+      line-height: 1.7;
+      color: rgba(255, 255, 255, 0.85);
+    }
+
+    .wrap {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: auto auto;
+      gap: 0 60px;
+      align-items: start;
+
+      img {
+        grid-row: 1 / 3;
+        grid-column: 1;
+        max-width: 100%;
+        margin: 0;
+      }
+
+      .descr {
+        grid-column: 2;
+        grid-row: 1;
+        max-width: 100%;
+      }
+
+      .btn-accent {
+        grid-column: 2;
+        grid-row: 2;
+        max-width: 300px;
+        margin-top: 20px;
+      }
+    }
+  }
+
+  // ---------- WHY BUILD ----------
+  .why-build {
+    .title {
+      font-size: 32px;
+    }
+
+    .why-build-swiper {
+      .swiper-slide {
+        min-height: 520px;
+      }
+
+      .slider-content {
+        min-height: 520px;
+
+        .media-wrap {
+          width: 200px;
+          height: 200px;
+        }
+
+        .title {
+          font-size: 28px;
+        }
+
+        p {
+          font-size: 16px;
+        }
+      }
+    }
+  }
+
+  // ---------- WE BUILD ----------
+  .we-build {
+    .we-build-swiper {
+      .swiper-slide {
+        min-height: 350px;
+      }
+
+      .slider-content {
+        min-height: 350px;
+
+        .media-wrap {
+          width: 180px;
+          height: 180px;
+        }
+
+        .title {
+          font-size: 22px;
+        }
+      }
+    }
+  }
+
+  // ---------- TECHNOLOGIES ----------
+  .technologies {
+    margin-top: 80px;
+    margin-bottom: 80px;
+
+    &.bg {
+      padding: 80px 0;
+
+      &::after {
+        border-radius: 100px;
+      }
+    }
+
+    .wrap {
+      .title {
+        font-size: 28px;
+      }
+
+      .subtitle {
+        font-size: 40px;
+      }
+    }
+  }
+
+  .technologies-slider {
+    .slider-content .media-wrap {
+      width: 300px;
+      height: 300px;
+    }
+  }
+
+  // ---------- FORM ----------
+  .form-section {
+    .card {
+      max-width: 780px;
+      padding: 70px 60px;
+      border-radius: 40px;
+    }
+
+    .title {
+      font-size: 36px;
+    }
+
+    .subtitle {
+      font-size: 28px;
+    }
+
+    .form {
+      max-width: 100%;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 20px;
+
+      input:nth-child(n + 5),
+      textarea,
+      button {
+        grid-column: 1 / -1;
+      }
+    }
+  }
+
+  // ---------- SOCIAL ----------
+  .social {
+    padding-top: 100px;
+
+    .social-wrap {
+      .title {
+        font-size: 28px;
+      }
+    }
+
+    .social-logo {
+      width: 250px;
+      height: 250px;
+      margin-bottom: 40px;
+    }
+
+    .social-content {
+      flex-wrap: nowrap;
+      align-items: flex-start;
+      gap: 40px;
+    }
+
+    .about-section,
+    .faq-section {
+      max-width: 220px;
+      flex: 1;
+    }
+
+    .social-section {
+      flex: 1;
+    }
+
+    .btn-accent {
+      width: 320px;
+    }
+  }
+
+  // ---------- FOOTER ----------
+  .footer {
+    .divider {
+      max-width: 600px;
+    }
+
+    .copyright {
+      font-size: 14px;
+      letter-spacing: 2.5px;
+    }
+  }
+}
+
+// ============================================================
+// RESPONSIVE — LARGE DESKTOP (1440px+)
+// ============================================================
+@media screen and (min-width: 1440px) {
+  .header {
+    max-width: 1400px;
+  }
+
+  .hero {
+    gap: 0 80px;
+    margin-top: 180px;
+
+    .hero-title {
+      font-size: 48px;
+
+      span {
+        font-size: 72px;
+      }
+    }
+
+    .hero-img-wrapper {
+      border-radius: 140px 140px 140px 300px;
+      max-height: 500px;
+    }
+  }
+
+  .introduction {
+    .desktop {
+      max-width: 1000px;
+      font-size: 20px;
+    }
+
+    .wrap {
+      gap: 0 80px;
+
+      img {
+        border-radius: 100px 200px;
+      }
+    }
+  }
+
+  .why-build {
+    .title {
+      font-size: 36px;
+    }
+
+    .slider-content {
+      .media-wrap {
+        width: 240px;
+        height: 240px;
+      }
+
+      .title {
+        font-size: 32px;
+      }
+    }
+  }
+
+  .technologies {
+    margin-top: 100px;
+    margin-bottom: 100px;
+  }
+
+  .we-build {
+    position: relative;
+    z-index: 1;
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: url("/assets/img/vecor.png") no-repeat center;
+      background-size: contain;
+      z-index: -1;
+    }
+  }
+
+  .form-section {
+    .card {
+      max-width: 960px;
+      padding: 80px 80px;
+    }
+  }
+
+  .social {
+    .social-content {
+      gap: 60px;
+    }
+
+    .about-section,
+    .faq-section {
+      max-width: 260px;
+    }
+  }
+
+  .footer {
+    .divider {
+      max-width: 800px;
+    }
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .swiper-custom-prev,
+  .swiper-custom-next {
+    display: none !important;
   }
 }
